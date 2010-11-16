@@ -1,5 +1,8 @@
 # Django settings for celeryproject project.
 
+import djcelery
+djcelery.setup_loader()
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -78,10 +81,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'people',
-    'celery',
+    'djcelery',
 )
 
-CELERY_BACKEND = "database"
+CELERY_RESULT_BACKEND = "database"
 BROKER_HOST = "localhost"
 BROKER_PORT = 5672
 BROKER_USER = "myusername"
